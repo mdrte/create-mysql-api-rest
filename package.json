@@ -1,0 +1,25 @@
+{
+  "name": "mysql-api-rest-generator",
+  "version": "0.1.0",
+  "description": "A package for automatically generate a REST API from a MySQL database",
+  "main": "index.js",
+  "scripts": {
+    "test": "run(config, app)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdrte/mysql-api-rest-generator.git"
+  },
+  "keywords": [
+    "mysql",
+    "api",
+    "rest",
+    "generator"
+  ],
+  "author": "Matias Duarte",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mdrte/mysql-api-rest-generator/issues"
+  },
+  "homepage": "https://github.com/mdrte/mysql-api-rest-generator#readme"
+}
