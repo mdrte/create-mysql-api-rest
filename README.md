@@ -31,7 +31,7 @@ To work properly, this package, requires that the tables are named as follows:
 1. All tables that represent a **model** must be written in plural (example: ​devices​).
 1. All tables that represent a **relation** must have as a suffix the model's name in singular (example: ​device_brands​ where ​device​ is the model). 
 1. There are two types of relations:
-    1. **Betewen models** (example: ​organization_users​, where one model is ​organizations​ and the other is ​users​, as this 2 tables exists and are written in plural, therefore they are models)
+    1. **Between models** (example: ​organization_users​, where one model is ​organizations​ and the other is ​users​, as this 2 tables exists and are written in plural, therefore they are models)
     1. **Extensions of a same model** (example: ​device_brands​ where the model is ​devices​ and it has attributes (1 or more) extensibles/related to ​brands​).
 1. All tables must have a **PRIMARY KEY** called **id**
 1. All tables who have a relation with another model or an extension of the same model, have a **KEY** which starts with the suffix **id_** followed by the model's name in singular (example: ​id_user​).
