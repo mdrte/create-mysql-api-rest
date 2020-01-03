@@ -1,25 +1,32 @@
 {
-  "name": "mysql-api-rest-generator",
+  "name": "create-mysql-api-rest",
   "version": "0.1.0",
   "description": "A package for automatically generate a REST API from a MySQL database",
   "main": "index.js",
   "scripts": {
-    "test": "run(config, app)"
+    "test": "run(config, app)",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mdrte/mysql-api-rest-generator.git"
+    "url": "git+https://github.com/mdrte/create-mysql-api-rest.git"
   },
   "keywords": [
-    "mysql",
-    "api",
-    "rest",
-    "generator"
+    "MySQL",
+    "API",
+    "REST",
+    "generator",
+    "CLI"
   ],
   "author": "Matias Duarte",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mdrte/mysql-api-rest-generator/issues"
+    "url": "https://github.com/mdrte/create-mysql-api-rest/issues"
   },
-  "homepage": "https://github.com/mdrte/mysql-api-rest-generator#readme"
+  "homepage": "https://github.com/mdrte/create-mysql-api-rest#readme",
+  "dependencies": {
+    "mysql2": "^2.1.0",
+    "pluralize": "8.0.0",
+    "sequelize": "5.21.3"
+  }
 }
