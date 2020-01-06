@@ -38,6 +38,7 @@ To work properly, this package, requires that the tables are named as follows:
 
 
 ## TODO
+1. Import keys from database to model
 1. Generate POST and PUT endpoints.
 1. A good log handling
 1. Update existing models
