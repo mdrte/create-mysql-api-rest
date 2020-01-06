@@ -1,8 +1,7 @@
 const Sequelize = require('sequelize')
 const defaultConfig = require('./config.json')
 const fileUtils = require('./lib/files')
-const tableUtils = require('./lib/tables')
-const modelBuilder = require('./lib/modelBuilder')
+const ModelBuilder = require('./lib/ModelBuilder')
 
 const sequelizeOptions = {
     dialect: 'mysql',
@@ -17,8 +16,12 @@ let tables = []
 async function run(config) {
     console.log('Trying to find models from MySQL...')
     try {
+        // initializing sequelize
         sequelize = new Sequelize(config.database, config.username, config.password, sequelizeOptions || {})
         queryInterface = sequelize.getQueryInterface()
+
+        // create models directory
+        await fileUtils.createDirectoryIfDoesntExist(process.cwd() + modelsDir)
 
         const tableNames = await queryInterface.showAllTables()
         console.log(tableNames.length, 'tables found:', tableNames)
@@ -28,28 +31,28 @@ async function run(config) {
         }));
 
         await buildModels(tables)
-        console.log(tables)
+        // console.log(tables)
 
         sequelize.close();
     } catch (e) {
-        console.log('Something went wrong')
-        console.log(e)
+        console.log('Something went wrong.', e)
     }
 }
 
 
 async function buildModels(tables) {
     try {
-        await fileUtils.createDirectoryIfDoesntExist(process.cwd() + modelsDir)
+        // initializing the modelBuilder
+        const modelBuilder = new ModelBuilder()
+
         for (const table in tables) {
             // skip loop if the property is from prototype
             if (!tables.hasOwnProperty(table)) continue;
 
             const obj = tables[table];
-            if (tableUtils.isValidModel(table, obj)) {
+            if (modelBuilder.isValidModel(table, obj)) {
                 console.log('✔ Model ' + table + ' discovered.')
                 modelBuilder.create(table, obj)
-
 
 
                 for (var prop in obj) {
