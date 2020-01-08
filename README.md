@@ -2,20 +2,24 @@
 This is a package for automatically generate REST API from a MySQL database.
 It connects to a database , reads all the tables, builds the models and relations for [SequelizeJS](https://github.com/sequelize/sequelize) via the command line and allows the user to automatically generate REST (GET and DELETE) endpoints for a Express application.
 
+## Before you install
+This package is intend to be an excercise, to understand how node works, to explore how javascript behave in server side and to publish my first npm package.
+
+
 ## Requirements
 For this package to work you need to install the following pre-requisites:
 
 **MySQL2**
 
-`npm install -g mysql`
+    npm install -g mysql
 
 **Sequelize**
 
-`npm install sequelize --save`
+    npm install sequelize --save
 
 **Sequelize-cli**
 
-`npm install -g sequelize-cli`
+    npm install -g sequelize-cli
 
 ## Install
 
@@ -38,8 +42,9 @@ To work properly, this package, requires that the tables are named as follows:
 
 
 ## TODO
-1. Import keys from database to model
+1. Create relations between models.
+1. Generate GET and DELETE endpoints.
 1. Generate POST and PUT endpoints.
-1. A good log handling
-1. Update existing models
-1. Automatic Swagger documentation
+1. A good log handling.
+1. Update existing models.
+1. Automatic Swagger documentation.
