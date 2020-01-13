@@ -45,7 +45,7 @@ async function run(config) {
 
         models = await buildModels(tables)
         await buildRouting(models)
-        await expressServerBuilder(models)
+        await buildExpressServer(models)
 
         sequelize.close();
         console.log(chalk.green('\nProcess finished successfully.'))
@@ -173,7 +173,7 @@ async function buildRouting(models) {
  * Build express server
  * @param {object[]} models 
  */
-async function buildRouting(models) {
+async function buildExpressServer(models) {
     try {
         // initializing the routingBuilder
         const expressServerBuilder = new ExpressServerBuilder()
