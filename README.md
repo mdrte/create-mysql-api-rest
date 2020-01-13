@@ -11,19 +11,49 @@ For this package to work you need to install the following pre-requisites:
 
 **MySQL2**
 
-    npm install -g mysql
+To hadle connections to MySQL database
+
+    npm install -g mysql2
 
 **Sequelize**
+
+To handle models and queries to the database
 
     npm install sequelize --save
 
 **Sequelize-cli**
+
+To build the directories and index for the models 
 
     npm install -g sequelize-cli
 
 ## Install
 
     npm install -g create-mysql-api-rest
+
+## Usage
+
+To create a REST API with this package you need to install this package, the requeriments listed and follow this steps:
+
+First, create a folder:
+
+    mkdir my-rest-api
+    cd my-rest-api
+
+Then, install the npm packages that we will use and make the sequelize files and folders:
+
+    npm init
+    npm install express sequelize mysql2 body-parser --save
+    npm install sequelize-cli -g
+    npm install create-mysql-api-rest
+
+    sequelize init
+
+Go into config/config.json and replace the content of the file with your database configuration.
+After that run:
+
+    TODO: define how to call the function
+
 
 ## Database tables naming
 To work properly, this package, requires that the tables are named as follows:
@@ -43,8 +73,6 @@ To work properly, this package, requires that the tables are named as follows:
 
 ## TODO
 1. Create relations between models.
-1. Generate GET and DELETE endpoints.
-1. Generate POST and PUT endpoints.
 1. A good log handling.
 1. Update existing models.
 1. Automatic Swagger documentation.
