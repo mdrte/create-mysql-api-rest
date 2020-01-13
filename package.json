@@ -1,6 +1,6 @@
 {
   "name": "create-mysql-api-rest",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A package for automatically generate a REST API from a MySQL database",
   "main": "index.js",
   "bin": {
