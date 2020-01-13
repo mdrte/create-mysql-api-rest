@@ -118,6 +118,7 @@ To work properly, this package, requires that the tables are named as follows:
 
 
 ## TODO
+1. Handle model attributes correctly inside create and update endpoints
 1. Create relations between models.
 1. A good log handling.
 1. Update existing models.
