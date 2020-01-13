@@ -152,9 +152,9 @@ async function buildRouting(models) {
 
             const obj = models[model];
             routingBuilder.create(model, obj, null)
-            routingBuilder.addIndexRoute()
-
         }
+        console.log()
+        routingBuilder.addIndexRoute()
     } catch (e) {
         console.log(chalk.red('Something went wrong building the routing:'), e)
     }
