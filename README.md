@@ -62,7 +62,24 @@ After that, run this command inside your project root folder:
 
 This will populate the `./models` and `./routes` folders with the automatically generated files.
 
-Finally, require the generated routes inside your main express server file, `app.js`, `server.js` or `index.js`, just like other route files.
+Finally, run the server using node:
+
+    node app.js
+
+Or add a `start` script to `package.json`
+
+~~~json 
+"scripts": {
+    ....
+    "start": "node index.js"
+},
+~~~
+
+And run the server using:
+
+    npm start
+
+You can add any desired routes inside your main express server file, `app.js`:
 
 ~~~js
 //.............
