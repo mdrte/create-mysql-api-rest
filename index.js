@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const Sequelize = require('sequelize')
-const defaultConfig = require('./config.json')
+const projectConfig = require(process.cwd() + '/config/config.json')
 const fileUtils = require('./lib/files')
 const tableUtils = require('./lib/tables')
 const ModelBuilder = require('./lib/ModelBuilder')
@@ -25,7 +25,7 @@ async function run(config) {
     try {
         console.log(chalk.blue("Let's start connecting to the database...\n"))
         // initializing sequelize
-        sequelize = new Sequelize(config.database, config.username, config.password, sequelizeOptions || {})
+        sequelize = new Sequelize(config.development.database, config.development.username, config.development.password, sequelizeOptions || {})
         queryInterface = sequelize.getQueryInterface()
 
         // create models directory
@@ -171,4 +171,4 @@ async function buildRouting(models) {
 /**
  * TODO: use a good config manager
  */
-run(defaultConfig);
+run(projectConfig);

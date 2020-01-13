@@ -13,7 +13,7 @@ For this package to work you need to install the following pre-requisites:
 
 To hadle connections to MySQL database
 
-    npm install -g mysql2
+    npm install mysql2 --save
 
 **Sequelize**
 
@@ -33,27 +33,50 @@ To build the directories and index for the models
 
 ## Usage
 
-To create a REST API with this package you need to install this package, the requeriments listed and follow this steps:
+To create a REST API you need to install this package, the requeriments listed and to follow the next steps:
 
 First, create a folder:
 
     mkdir my-rest-api
     cd my-rest-api
 
-Then, install the npm packages that we will use and make the sequelize files and folders:
+Then, install the npm packages and create the sequelize files and folders with the last command:
 
     npm init
     npm install express sequelize mysql2 body-parser --save
-    npm install sequelize-cli -g
-    npm install create-mysql-api-rest
+    npm install -g sequelize-cli
+    npm install -g create-mysql-api-rest
 
     sequelize init
 
-Go into config/config.json and replace the content of the file with your database configuration.
-After that run:
+Go into `./config/config.json` and replace the content of the `development` attribute with your database configuration.
+After that, run this command inside your project root folder:
 
-    TODO: define how to call the function
+    create-mysql-api-rest
 
+This will populate the `./models` and `./routes` folders with the automatically generated files.
+
+Finally, require the generated routes inside your main express server file, `app.js`, `server.js` or `index.js`, just like other route files.
+
+~~~js
+//.............
+//..................
+//.........
+const express = require('express')
+//.........
+const index = require('./routes/index')
+const users = require('./routes/users')
+const organizations = require('./routes/organizations')
+//.............
+//..................
+//.........
+app.use('/', index)
+app.use('/users', users)
+app.use('/organizations', organizations)
+//.............
+//..................
+//.........
+~~~
 
 ## Database tables naming
 To work properly, this package, requires that the tables are named as follows:
