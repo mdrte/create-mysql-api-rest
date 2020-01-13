@@ -1,6 +1,6 @@
 {
   "name": "create-mysql-api-rest",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A package for automatically generate a REST API from a MySQL database",
   "main": "index.js",
   "bin": {
@@ -30,6 +30,8 @@
   "homepage": "https://github.com/mdrte/create-mysql-api-rest#readme",
   "dependencies": {
     "chalk": "3.0.0",
+    "express": "4.17.1",
+    "morgan": "1.9.1",
     "mysql2": "^2.1.0",
     "pluralize": "8.0.0",
     "sequelize": "5.21.3"
