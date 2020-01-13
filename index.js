@@ -6,6 +6,7 @@ const fileUtils = require('./lib/files')
 const tableUtils = require('./lib/tables')
 const ModelBuilder = require('./lib/ModelBuilder')
 const RoutingBuilder = require('./lib/RoutingBuilder')
+const ExpressServerBuilder = require('./lib/ExpressServerBuilder')
 const chalk = require('chalk');
 const _ = require('lodash');
 
@@ -44,7 +45,7 @@ async function run(config) {
 
         models = await buildModels(tables)
         await buildRouting(models)
-        // console.log(tables)
+        await expressServerBuilder(models)
 
         sequelize.close();
         console.log(chalk.green('\nProcess finished successfully.'))
@@ -165,6 +166,20 @@ async function buildRouting(models) {
         }
     } catch (e) {
         console.log(chalk.red('Something went wrong building the routing:'), e)
+    }
+}
+
+/**
+ * Build express server
+ * @param {object[]} models 
+ */
+async function buildRouting(models) {
+    try {
+        // initializing the routingBuilder
+        const expressServerBuilder = new ExpressServerBuilder()
+        expressServerBuilder.create(models)
+    } catch (e) {
+        console.log(chalk.red('Something went wrong building the express server:'), e)
     }
 }
 

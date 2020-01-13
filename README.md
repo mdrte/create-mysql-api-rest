@@ -21,6 +21,12 @@ To handle models and queries to the database
 
     npm install sequelize --save
 
+**Morgan**
+
+To handle logs inside the project
+
+    npm install morgan --save
+
 **Sequelize-cli**
 
 To build the directories and index for the models 
@@ -43,7 +49,7 @@ First, create a folder:
 Then, install the npm packages and create the sequelize files and folders with the last command:
 
     npm init
-    npm install express sequelize mysql2 body-parser --save
+    npm install express sequelize mysql2 body-parser morgan --save
     npm install -g sequelize-cli
     npm install -g create-mysql-api-rest
 
