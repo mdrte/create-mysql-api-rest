@@ -62,6 +62,7 @@ async function run(config) {
 async function buildModels(tables) {
     console.log('\nTrying to find models from MySQL...\n')
     let models = []
+    let dependencies = []
     try {
         // initializing the modelBuilder
         const modelBuilder = new ModelBuilder()
@@ -76,14 +77,10 @@ async function buildModels(tables) {
                 console.log('✔  Model ' + table + ' discovered.')
                 let foreignKeys = await mapForeignKeys(table)
                 modelBuilder.create(table, obj, foreignKeys)
-
-
-                for (var prop in obj) {
-                    // skip loop if the property is from prototype
-                    if (!obj.hasOwnProperty(prop)) continue;
-
-                    //console.log(prop + " = " + obj[prop]);
-                }
+            } else if (modelBuilder.isValidDependency(table, obj)) {
+                dependencies[table] = tables[table]
+                let foreignKeys = await mapForeignKeys(table)
+                modelBuilder.create(table, obj, foreignKeys)
             }
         }
         return models
@@ -155,14 +152,8 @@ async function buildRouting(models) {
 
             const obj = models[model];
             routingBuilder.create(model, obj, null)
+            routingBuilder.addIndexRoute()
 
-
-            for (var prop in obj) {
-                // skip loop if the property is from prototype
-                if (!obj.hasOwnProperty(prop)) continue;
-
-                //console.log(prop + " = " + obj[prop]);
-            }
         }
     } catch (e) {
         console.log(chalk.red('Something went wrong building the routing:'), e)
