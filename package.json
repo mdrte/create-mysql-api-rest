@@ -30,7 +30,7 @@
   "homepage": "https://github.com/mdrte/create-mysql-api-rest#readme",
   "dependencies": {
     "chalk": "3.0.0",
-    "express": "4.17.1",
+    "express": "4.17.3",
     "morgan": "1.9.1",
     "mysql2": "^2.1.0",
     "pluralize": "8.0.0",
